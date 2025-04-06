@@ -51,7 +51,7 @@ fun main() {
     if (envFile().readText().contains("KTOR_DEVELOPMENT=true")) {
         System.setProperty("io.ktor.development", "true")
     }
-    embeddedServer(Netty, port = 8080, host = "0.0.0.0", module = Application::module)
+    embeddedServer(Netty, port = 8085, host = "0.0.0.0", module = Application::module)
         .start(wait = true)
 }
 
@@ -78,10 +78,10 @@ fun Application.module() {
     // Connect to the database.
     configureDatabase()
 
-//    // Launch the data importer in a coroutine.
-//    launch {
-//        DataImporter.importData()
-//    }
+    // Launch the data importer in a coroutine.
+    launch {
+        DataImporter.importData()
+    }
 
 
 

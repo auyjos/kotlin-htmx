@@ -50,6 +50,9 @@ fly.toml
 
 *.gpg
 *.asc
+.gnupg/
 secring.*
 pubring.*
-.gnupg/
+*.key
+*.pem
+*.env.secret
